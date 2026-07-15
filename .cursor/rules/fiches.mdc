@@ -1,0 +1,32 @@
+---
+description: Règles pour ajouter ou mettre à jour des fiches sur Scriptum Probat
+globs:
+  - src/content/docs/**/*.md
+  - src/content/docs/**/*.mdx
+  - FICHE-TEMPLATE.md
+alwaysApply: false
+---
+
+# Scriptum Probat — fiches factuelles
+
+Tu travailles sur un référentiel de **chiffres sourcés** en français (économie, société, santé).
+
+## Obligations
+
+1. Suivre `FICHE-TEMPLATE.md` pour toute nouvelle fiche.
+2. **Ne jamais inventer** de statistique — citer URL + année + méthode.
+3. Ton **neutre** : section « Pensée critique » avec lectures gauche ET droite.
+4. Fichiers dans `src/content/docs/{economie|travail|societe|sante}/`.
+5. Retirer `draft: true` quand la fiche est complète.
+6. Mettre à jour « Historique » lors d'un changement de chiffre.
+
+## Frontmatter requis (fiches)
+
+- `title`, `description`, `answerShort`, `confidence`, `category`, `tags`
+
+## Confiance
+
+- `elevee` : source primaire officielle (INSEE, ANSES, ministères)
+- `moyenne` : études reconnues ou agrégations sérieuses
+- `faible` : données partielles ou anciennes
+- `controverse` : études contradictoires — le mentionner explicitement

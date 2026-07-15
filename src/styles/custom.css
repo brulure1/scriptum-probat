@@ -1,0 +1,28 @@
+/* Scriptum Probat — thème sobre, lisible en débat */
+
+:root {
+	--sl-color-accent: #5c4a32;
+	--sl-color-accent-low: #f5f0e8;
+	--sl-color-accent-high: #3d3224;
+}
+
+:root[data-theme='dark'] {
+	--sl-color-accent: #c9a86c;
+	--sl-color-accent-low: #2a2418;
+	--sl-color-accent-high: #e8d4a8;
+}
+
+/* Titre du site — touche classique */
+.site-title {
+	font-variant: small-caps;
+	letter-spacing: 0.04em;
+}
+
+/* Bloc réponse courte en tête de fiche */
+.content-panel .sl-markdown-content blockquote:first-of-type {
+	border-left: 3px solid var(--sl-color-accent);
+	background: var(--sl-color-accent-low);
+	padding: 0.75rem 1rem;
+	border-radius: 0 0.375rem 0.375rem 0;
+	font-size: 1.05em;
+}

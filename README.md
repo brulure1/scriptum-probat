@@ -1,49 +1,54 @@
-# Starlight Starter Kit: Basics
+# Scriptum Probat
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+> *Verba volant, scriptum probat.* — L'écrit prouve.
 
-```
-npm create astro@latest -- --template starlight
-```
+Référentiel francophone de **chiffres sourcés** : économie, société, santé. Neutre, nuancé, avec contre-exemples.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- [Astro](https://astro.build) + [Starlight](https://starlight.astro.build)
+- Contenu en Markdown (`src/content/docs/`)
+- Hébergement gratuit via **GitHub Pages**
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+## Développement local
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+```powershell
+cd scriptum-probat
+npm install
+npm run dev
 ```
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Site local : http://localhost:4325/scriptum-probat/ (ou port affiché)
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+## Ajouter une fiche (Cursor)
 
-Static assets, like favicons, can be placed in the `public/` directory.
+```
+Ajoute une fiche : [QUESTION]
+Catégorie : economie | travail | societe | sante
+Suis FICHE-TEMPLATE.md — sources obligatoires, ton neutre.
+```
 
-## 🧞 Commands
+## Déploiement GitHub Pages
 
-All commands are run from the root of the project, from a terminal:
+1. Crée un repo GitHub **`scriptum-probat`** (public)
+2. Édite `astro.config.mjs` si tu changes de compte ou de nom de repo
+3. Push le code sur `main`
+4. GitHub → **Settings → Pages → Source : GitHub Actions**
+5. URL : `https://brulure1.github.io/scriptum-probat/`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Structure
 
-## 👀 Want to learn more?
+```
+src/content/docs/
+├── index.mdx              # Accueil
+├── comment-utiliser.md    # Guide
+├── economie/              # Fiches économie
+├── travail/
+├── societe/
+└── sante/
+```
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+## Anonymat
+
+- Pas de nom personnel dans le site ni les commits (email GitHub noreply recommandé)
+- Titre du site : Scriptum Probat uniquement

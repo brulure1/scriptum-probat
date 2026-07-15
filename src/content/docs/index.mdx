@@ -1,40 +1,44 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Scriptum Probat
+description: Référentiel francophone de chiffres sourcés — économie, société, santé.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  title: Scriptum Probat
+  tagline: Verba volant, scriptum probat. — L'écrit prouve. Chiffres sourcés, nuancés, avec contre-exemples.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Parcourir les fiches
+      link: /economie/seuil-1-pourcent-riches/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Comment ajouter une fiche
+      link: /comment-utiliser/
+      icon: document
       variant: minimal
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+## À quoi sert ce site ?
+
+Centraliser des **faits chiffrés sourcés** pour ne pas les oublier — et les retrouver vite en débat ou en recherche.
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Économie & fiscalité" icon="open-book">
+		Seuils de richesse, taux d'imposition effectifs, exil fiscal…
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Travail & inégalités" icon="open-book">
+		Écarts salariaux, mobilité sociale, part des revenus du travail vs capital…
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Société & justice" icon="open-book">
+		Harcèlement, criminalité, statistiques démographiques…
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Santé & nutrition" icon="open-book">
+		Allégations santé, études, mythes alimentaires…
 	</Card>
 </CardGrid>
+
+## Principes
+
+- **Neutre** : les données d'abord, avec nuances et limites.
+- **Sourcé** : chaque chiffre renvoie à une source identifiable.
+- **Contre-exemples** : éviter la pensée de chapelle, des deux côtés.
+- **Daté** : vérifiez toujours la date de mise à jour de la fiche.
