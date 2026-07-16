@@ -2,12 +2,9 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// Repo GitHub : https://github.com/brulure1/scriptum-probat
-// Pour un repo username.github.io, mets base: '/' et site: 'https://brulure1.github.io'
 const SITE_URL = 'https://brulure1.github.io';
 const BASE_PATH = '/scriptum-probat/';
 
-// https://astro.build/config
 export default defineConfig({
 	site: SITE_URL,
 	base: BASE_PATH,
@@ -16,6 +13,10 @@ export default defineConfig({
 			title: 'Scriptum Probat',
 			description:
 				'Référentiel francophone de chiffres sourcés — économie, société, santé. Verba volant, scriptum probat.',
+			logo: {
+				src: './src/assets/logo.svg',
+				alt: 'Scriptum Probat',
+			},
 			defaultLocale: 'root',
 			locales: {
 				root: {
@@ -24,10 +25,13 @@ export default defineConfig({
 				},
 			},
 			lastUpdated: true,
-			customCss: ['./src/styles/custom.css'],
-			components: {
-				// Page d'accueil sans sidebar
-			},
+			customCss: [
+				'@fontsource/cormorant-garamond/500.css',
+				'@fontsource/cormorant-garamond/600.css',
+				'@fontsource/source-sans-3/400.css',
+				'@fontsource/source-sans-3/600.css',
+				'./src/styles/custom.css',
+			],
 			sidebar: [
 				{
 					label: 'Guide',
@@ -53,10 +57,7 @@ export default defineConfig({
 			head: [
 				{
 					tag: 'meta',
-					attrs: {
-						name: 'author',
-						content: 'Scriptum Probat',
-					},
+					attrs: { name: 'author', content: 'Scriptum Probat' },
 				},
 			],
 		}),
