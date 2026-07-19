@@ -25,6 +25,7 @@ export default defineConfig({
 				},
 			},
 			lastUpdated: true,
+			credits: false,
 			customCss: [
 				'@fontsource/plus-jakarta-sans/400.css',
 				'@fontsource/plus-jakarta-sans/600.css',

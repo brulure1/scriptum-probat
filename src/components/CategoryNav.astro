@@ -1,0 +1,19 @@
+---
+const links = [
+	{ id: 'economie', label: 'Économie', icon: '💶' },
+	{ id: 'societe', label: 'Société', icon: '⚖️' },
+	{ id: 'travail', label: 'Travail', icon: '👷' },
+	{ id: 'sante', label: 'Santé', icon: '🏥' },
+];
+---
+
+<nav class="sp-cat-nav" aria-label="Filtrer par thème">
+	{
+		links.map(({ id, label, icon }) => (
+			<a href={`#${id}`} class="sp-cat-nav__link" data-cat={id}>
+				<span aria-hidden="true">{icon}</span>
+				{label}
+			</a>
+		))
+	}
+</nav>

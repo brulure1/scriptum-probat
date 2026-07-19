@@ -129,6 +129,26 @@ body {
 	position: relative;
 }
 
+.hero::before {
+	content: 'Verba volant, scriptum probat';
+	display: inline-flex;
+	align-items: center;
+	padding: 0.35rem 0.85rem 0.35rem 1.35rem;
+	margin-bottom: 1.25rem;
+	border-radius: 999px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--sp-accent);
+	background:
+		radial-gradient(circle at 0.65rem center, var(--sp-accent) 3px, transparent 4px),
+		color-mix(in srgb, var(--sp-accent) 10%, var(--sp-surface));
+	border: 1px solid color-mix(in srgb, var(--sp-accent) 25%, transparent);
+	backdrop-filter: blur(8px);
+	box-shadow: 0 4px 16px color-mix(in srgb, var(--sp-accent) 15%, transparent);
+}
+
 .hero::after {
 	content: '';
 	position: absolute;
@@ -586,11 +606,270 @@ header.header {
 @media (prefers-reduced-motion: reduce) {
 	.hero h1,
 	.hero::after,
-	main[data-pagefind-body].splash .sl-markdown-content {
+	main[data-pagefind-body].splash .sl-markdown-content,
+	.sp-animate-in {
 		animation: none;
 	}
 
 	.sp-fiche-card__shine {
 		display: none;
 	}
+}
+
+/* ══════════════════════════════════════════
+   V2 — polish supplémentaire
+   ══════════════════════════════════════════ */
+
+/* Grille de points subtile */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background-image: radial-gradient(rgb(148 163 184 / 0.22) 0.65px, transparent 0.65px);
+	background-size: 28px 28px;
+	mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 20%, transparent 75%);
+	pointer-events: none;
+	z-index: -1;
+	opacity: 0.55;
+}
+
+:root[data-theme='dark'] body::after {
+	background-image: radial-gradient(rgb(148 163 184 / 0.12) 0.65px, transparent 0.65px);
+	opacity: 0.35;
+}
+
+/* Orbes décoratifs splash */
+main[data-pagefind-body].splash::before {
+	content: '';
+	position: fixed;
+	width: 28rem;
+	height: 28rem;
+	top: -8rem;
+	right: -6rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgb(139 92 246 / 0.18), transparent 65%);
+	filter: blur(40px);
+	pointer-events: none;
+	z-index: -1;
+	animation: sp-float 8s ease-in-out infinite;
+}
+
+main[data-pagefind-body].splash::after {
+	content: '';
+	position: fixed;
+	width: 22rem;
+	height: 22rem;
+	bottom: 5rem;
+	left: -4rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgb(59 130 246 / 0.15), transparent 65%);
+	filter: blur(36px);
+	pointer-events: none;
+	z-index: -1;
+	animation: sp-float 10s ease-in-out infinite reverse;
+}
+
+/* Entrée en cascade cartes */
+.sp-animate-in {
+	animation: sp-fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Nav catégories sticky */
+.sp-cat-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0 0 2rem;
+	padding: 0.5rem;
+	border-radius: 999px;
+	background: var(--sp-surface);
+	border: 1px solid var(--sp-border);
+	backdrop-filter: blur(16px);
+	box-shadow: var(--sp-shadow);
+	position: sticky;
+	top: 4.5rem;
+	z-index: 10;
+}
+
+.sp-cat-nav__link {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0.45rem 0.9rem;
+	border-radius: 999px;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--sp-muted);
+	transition:
+		background 0.2s,
+		color 0.2s,
+		transform 0.2s;
+}
+
+.sp-cat-nav__link:hover {
+	background: var(--sl-color-accent-low);
+	color: var(--sp-accent);
+	transform: translateY(-1px);
+}
+
+.sp-cat-nav__link[data-cat='economie']:hover {
+	background: rgb(59 130 246 / 0.12);
+	color: var(--sp-cat-economie);
+}
+.sp-cat-nav__link[data-cat='societe']:hover {
+	background: rgb(139 92 246 / 0.12);
+	color: var(--sp-cat-societe);
+}
+.sp-cat-nav__link[data-cat='travail']:hover {
+	background: rgb(245 158 11 / 0.12);
+	color: var(--sp-cat-travail);
+}
+.sp-cat-nav__link[data-cat='sante']:hover {
+	background: rgb(16 185 129 / 0.12);
+	color: var(--sp-cat-sante);
+}
+
+/* Labels de section homepage */
+.sp-section-label {
+	display: inline-block;
+	font-size: 0.6875rem;
+	font-weight: 800;
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	color: var(--sp-accent);
+	margin-bottom: 0.75rem;
+	padding: 0.25rem 0.6rem;
+	border-radius: 0.375rem;
+	background: color-mix(in srgb, var(--sp-accent) 10%, transparent);
+}
+
+main[data-pagefind-body].splash .sl-markdown-content > h2 {
+	font-size: 1.625rem;
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	margin-top: 3rem;
+	margin-bottom: 1.25rem;
+}
+
+/* Icônes sections fiches */
+.sp-section-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	margin-right: 0.5rem;
+	border-radius: 0.625rem;
+	font-size: 1rem;
+	vertical-align: middle;
+	background: var(--sp-surface);
+	border: 1px solid var(--sp-border);
+	box-shadow: 0 2px 8px rgb(0 0 0 / 0.06);
+}
+
+.sp-fiche-section__head h2 {
+	display: flex;
+	align-items: center;
+}
+
+/* Cartes principes — bordure haut colorée */
+.card-grid .card:nth-child(1) {
+	border-top: 3px solid #3b82f6;
+}
+.card-grid .card:nth-child(2) {
+	border-top: 3px solid #8b5cf6;
+}
+.card-grid .card:nth-child(3) {
+	border-top: 3px solid #10b981;
+}
+.card-grid .card:nth-child(4) {
+	border-top: 3px solid #f59e0b;
+}
+
+/* Recherche pill */
+site-search button {
+	border-radius: 999px !important;
+	border: 1px solid var(--sp-border) !important;
+	background: var(--sp-surface) !important;
+	backdrop-filter: blur(8px);
+	transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+site-search button:hover:not(:disabled) {
+	border-color: var(--sp-accent) !important;
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--sp-accent) 20%, transparent);
+}
+
+/* Pages fiches — titre article */
+.content-panel .sl-markdown-content h1:first-of-type {
+	font-size: clamp(1.75rem, 4vw, 2.35rem);
+	background: linear-gradient(135deg, var(--sl-color-text) 30%, var(--sp-accent));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+/* Tableaux — hover ligne */
+.content-panel .sl-markdown-content tbody tr {
+	transition: background 0.15s;
+}
+
+.content-panel .sl-markdown-content tbody tr:hover td {
+	background: color-mix(in srgb, var(--sp-accent) 8%, transparent) !important;
+}
+
+/* Footer custom */
+footer.sl-flex {
+	border-top: 1px solid var(--sp-border);
+	margin-top: 3rem;
+	padding-top: 1.5rem !important;
+	background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--sp-accent) 4%, transparent));
+}
+
+footer.sl-flex .meta::after {
+	content: ' · Verba volant, scriptum probat';
+	font-style: italic;
+	opacity: 0.7;
+}
+
+/* Pagination prev/next */
+.pagination-links a {
+	border-radius: 0.875rem !important;
+	border: 1px solid var(--sp-border) !important;
+	background: var(--sp-surface) !important;
+	backdrop-filter: blur(8px);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pagination-links a:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--sp-shadow);
+	border-color: color-mix(in srgb, var(--sp-accent) 40%, transparent) !important;
+}
+
+/* Stats — pulse icône */
+.sp-stat__icon {
+	animation: sp-float 4s ease-in-out infinite;
+}
+
+.sp-stat:nth-child(2) .sp-stat__icon {
+	animation-delay: 0.5s;
+}
+.sp-stat:nth-child(3) .sp-stat__icon {
+	animation-delay: 1s;
+}
+
+/* Numéro décoratif sur cartes fiches */
+.sp-fiche-card::after {
+	content: '';
+	position: absolute;
+	bottom: -1.5rem;
+	right: -1rem;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, color-mix(in srgb, var(--sp-accent) 12%, transparent), transparent 70%);
+	pointer-events: none;
+	z-index: -1;
 }

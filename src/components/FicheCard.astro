@@ -8,6 +8,7 @@ interface Props {
 	confidenceClass?: string;
 	confidenceLabel?: string;
 	accent?: string;
+	index?: number;
 }
 
 const {
@@ -18,10 +19,17 @@ const {
 	confidenceClass = '',
 	confidenceLabel,
 	accent = 'default',
+	index = 0,
 } = Astro.props;
+
+const delay = `${index * 0.07}s`;
 ---
 
-<li class="sp-fiche-card-wrap" data-accent={accent}>
+<li
+	class="sp-fiche-card-wrap sp-animate-in"
+	data-accent={accent}
+	style={`animation-delay: ${delay}`}
+>
 	<a href={href} class="sp-fiche-card">
 		<span class="sp-fiche-card__shine" aria-hidden="true"></span>
 		<div class="sp-fiche-card__meta">
